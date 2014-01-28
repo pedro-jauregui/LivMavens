@@ -174,7 +174,25 @@ src/settings/Security.settings
 #src/settings/Ideas.settings
 
 
+###########################################################
+
 #Pages
 src/pages/*
 !DefaultTemplate.page
 !NuevaReservacion.page
+
+#Clases
+src/clases/*
+
+### CONTROLLERS
+!NuevaReservacionController.cls
+
+### SERVICES
+!ReservacionAmenidadTriggerService.cls
+
+#Triggers
+src/triggers/*
+!ReservacionAmenidadTrigger.trigger
+
+#Components
+src/components/*
