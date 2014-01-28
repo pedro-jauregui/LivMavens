@@ -1,0 +1,59 @@
+<apex:page controller="NuevaReservacionController" showHeader="true" sidebar="false">
+
+    <apex:composition template="DefaultTemplate">
+        
+        <apex:define name="subMenu">
+            <li><apex:outputLink value="/NuevaReservacion" id="nuevaReservacion">Nueva Reservación</apex:outputLink></li>
+            <li>Historial de Reservaciones</li>
+        </apex:define>
+
+        <apex:define name="body"> 
+             <apex:form id="theForm"> 
+
+                <apex:pageMessages />
+                <div id="amenidadesLeftContent">
+                    <apex:actionRegion >
+                        <apex:outputLabel value="Amenidad" for="amd"></apex:outputLabel>
+                        <apex:selectList id="amd" value="{!reservacionAmenidad.Amenidad__c}" size="1" title="Amenidad">
+                            <apex:selectOptions value="{!amenidades}"></apex:selectOptions>
+                             <apex:actionSupport action="{!detallesAmenidad}" rerender="theForm" event="onchange"/>
+                        </apex:selectList>
+                    </apex:actionRegion>
+
+                    <br/><br/>
+                    <apex:inputField value="{!reservacionAmenidad.Fecha__c}">
+                        <apex:actionSupport action="{!listaReservacionesPorDia}" event="onchange" reRender="theForm"/>
+                    </apex:inputField>
+                    <apex:inputField value="{!reservacionAmenidad.Hora_de_Inicio__c}"/>
+                    <apex:inputField value="{!reservacionAmenidad.Hora_de_Termino__c}"/>
+
+                    <br/><br/>
+                    <apex:commandButton value="Agendar" action="{!agendar}"/>
+                </div>
+
+                <div id="amenidadesRightContent">
+                    <apex:image styleClass="imagenAmenidad" url="{!URLFOR($Resource.amenidades, amenidad.IdImagen__c)}" rendered="{!reservacionAmenidad.Amenidad__c!=null}"/> 
+                    <br/>
+                    Descripción:
+                    <apex:outputField value="{!amenidad.Descripcion__c}" rendered="{!reservacionAmenidad.Amenidad__c!=null}"/>
+                    <br/>
+                    Restricciones:
+                    <apex:outputField value="{!amenidad.Restricciones__c}" rendered="{!reservacionAmenidad.Amenidad__c!=null}"/>
+                </div>
+              
+                 <div id="amenidadesLeftContent">
+                     <apex:outputText rendered="{!reservacionAmenidad.Fecha__c==null}">Selecciona Una fecha para ver las reservaciones de ese dia.</apex:outputText>
+                     <apex:outputText rendered="{!(reservacionesActuales.size==0||reservacionesActuales==null)&&reservacionAmenidad.Fecha__c!=null}">Este dia no tiene ninguna reservacion aun.</apex:outputText>
+                     <apex:repeat value="{!reservacionesActuales}" var="res" rendered="{!reservacionesActuales.size>0}">
+                         <br/>  <apex:outputField value="{!res.Amenidad__c}"/> <br/>
+                         <br/> <apex:outputField value="{!res.Fecha__c}"/> <br/>
+                         <br/> De las : <apex:outputField value="{!res.Hora_de_Inicio__c}"/>
+                         hasta las :  <apex:outputField value="{!res.Hora_de_Termino__c}"/><br/>
+                     </apex:repeat>
+                 </div>
+                 
+            </apex:form>                    
+        </apex:define>
+    </apex:composition>
+
+</apex:page>

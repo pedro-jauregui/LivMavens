@@ -1,0 +1,1573 @@
+{
+    "CalendarExample_Controller.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-23 17:52:41", 
+        "fileName": "unpackaged/classes/CalendarExample_Controller.cls", 
+        "fullName": "CalendarExample_Controller", 
+        "id": "01pG0000003nMbkIAE", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-28 09:28:51", 
+        "manageableState": "unmanaged", 
+        "symbolTable": {
+            "constructors": [
+                {
+                    "location": {
+                        "column": 12, 
+                        "line": 10
+                    }, 
+                    "modifiers": [], 
+                    "name": "CalendarExample_Controller", 
+                    "parameters": [], 
+                    "references": [], 
+                    "type": null, 
+                    "visibility": "PUBLIC"
+                }
+            ], 
+            "externalReferences": [
+                {
+                    "methods": [
+                        {
+                            "argTypes": [], 
+                            "name": "getUserId", 
+                            "parameters": [], 
+                            "references": [
+                                {
+                                    "column": 129, 
+                                    "line": 50
+                                }
+                            ], 
+                            "returnType": null
+                        }
+                    ], 
+                    "name": "UserInfo", 
+                    "namespace": "system", 
+                    "references": [
+                        {
+                            "column": 120, 
+                            "line": 50
+                        }
+                    ], 
+                    "variables": []
+                }
+            ], 
+            "id": "01pG0000003nMbk", 
+            "innerClasses": [
+                {
+                    "constructors": [], 
+                    "externalReferences": [], 
+                    "id": null, 
+                    "innerClasses": [], 
+                    "key": null, 
+                    "methods": [], 
+                    "name": "calEvent", 
+                    "namespace": null, 
+                    "properties": [
+                        {
+                            "location": {
+                                "column": 23, 
+                                "line": 81
+                            }, 
+                            "modifiers": [], 
+                            "name": "title", 
+                            "references": [
+                                {
+                                    "column": 18, 
+                                    "line": 23
+                                }, 
+                                {
+                                    "column": 23, 
+                                    "line": 39
+                                }, 
+                                {
+                                    "column": 25, 
+                                    "line": 55
+                                }
+                            ], 
+                            "type": "String", 
+                            "visibility": "PUBLIC"
+                        }, 
+                        {
+                            "location": {
+                                "column": 24, 
+                                "line": 82
+                            }, 
+                            "modifiers": [], 
+                            "name": "allDay", 
+                            "references": [
+                                {
+                                    "column": 18, 
+                                    "line": 24
+                                }, 
+                                {
+                                    "column": 23, 
+                                    "line": 40
+                                }, 
+                                {
+                                    "column": 25, 
+                                    "line": 56
+                                }
+                            ], 
+                            "type": "Boolean", 
+                            "visibility": "PUBLIC"
+                        }, 
+                        {
+                            "location": {
+                                "column": 23, 
+                                "line": 83
+                            }, 
+                            "modifiers": [], 
+                            "name": "startString", 
+                            "references": [
+                                {
+                                    "column": 18, 
+                                    "line": 25
+                                }, 
+                                {
+                                    "column": 23, 
+                                    "line": 41
+                                }, 
+                                {
+                                    "column": 25, 
+                                    "line": 57
+                                }
+                            ], 
+                            "type": "String", 
+                            "visibility": "PUBLIC"
+                        }, 
+                        {
+                            "location": {
+                                "column": 23, 
+                                "line": 84
+                            }, 
+                            "modifiers": [], 
+                            "name": "endString", 
+                            "references": [
+                                {
+                                    "column": 18, 
+                                    "line": 27
+                                }, 
+                                {
+                                    "column": 23, 
+                                    "line": 42
+                                }, 
+                                {
+                                    "column": 25, 
+                                    "line": 58
+                                }
+                            ], 
+                            "type": "String", 
+                            "visibility": "PUBLIC"
+                        }, 
+                        {
+                            "location": {
+                                "column": 23, 
+                                "line": 85
+                            }, 
+                            "modifiers": [], 
+                            "name": "url", 
+                            "references": [
+                                {
+                                    "column": 18, 
+                                    "line": 28
+                                }, 
+                                {
+                                    "column": 23, 
+                                    "line": 43
+                                }, 
+                                {
+                                    "column": 25, 
+                                    "line": 59
+                                }
+                            ], 
+                            "type": "String", 
+                            "visibility": "PUBLIC"
+                        }, 
+                        {
+                            "location": {
+                                "column": 23, 
+                                "line": 86
+                            }, 
+                            "modifiers": [], 
+                            "name": "className", 
+                            "references": [
+                                {
+                                    "column": 18, 
+                                    "line": 29
+                                }, 
+                                {
+                                    "column": 23, 
+                                    "line": 44
+                                }, 
+                                {
+                                    "column": 25, 
+                                    "line": 60
+                                }
+                            ], 
+                            "type": "String", 
+                            "visibility": "PUBLIC"
+                        }
+                    ], 
+                    "tableDeclaration": {
+                        "location": {
+                            "column": 18, 
+                            "line": 80
+                        }, 
+                        "modifiers": [], 
+                        "name": "calEvent", 
+                        "references": [
+                            {
+                                "column": 13, 
+                                "line": 21
+                            }, 
+                            {
+                                "column": 33, 
+                                "line": 21
+                            }, 
+                            {
+                                "column": 13, 
+                                "line": 37
+                            }, 
+                            {
+                                "column": 38, 
+                                "line": 37
+                            }, 
+                            {
+                                "column": 17, 
+                                "line": 53
+                            }, 
+                            {
+                                "column": 40, 
+                                "line": 53
+                            }
+                        ], 
+                        "type": "calEvent"
+                    }, 
+                    "variables": []
+                }
+            ], 
+            "key": "01pG0000003nMbk", 
+            "methods": [
+                {
+                    "location": {
+                        "column": 26, 
+                        "line": 15
+                    }, 
+                    "modifiers": [], 
+                    "name": "pageLoad", 
+                    "parameters": [], 
+                    "references": [
+                        {
+                            "column": 9, 
+                            "line": 74
+                        }
+                    ], 
+                    "returnType": "PageReference", 
+                    "type": null, 
+                    "visibility": "PUBLIC"
+                }, 
+                {
+                    "location": {
+                        "column": 26, 
+                        "line": 67
+                    }, 
+                    "modifiers": [], 
+                    "name": "toggleMyEvents", 
+                    "parameters": [], 
+                    "references": [], 
+                    "returnType": "PageReference", 
+                    "type": null, 
+                    "visibility": "PUBLIC"
+                }
+            ], 
+            "name": "CalendarExample_Controller", 
+            "namespace": null, 
+            "properties": [
+                {
+                    "location": {
+                        "column": 20, 
+                        "line": 3
+                    }, 
+                    "modifiers": [], 
+                    "name": "includeMyEvents", 
+                    "references": [
+                        {
+                            "column": 9, 
+                            "line": 12
+                        }, 
+                        {
+                            "column": 12, 
+                            "line": 49
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 69
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 72
+                        }, 
+                        {
+                            "column": 12, 
+                            "line": 68
+                        }
+                    ], 
+                    "type": "Boolean", 
+                    "visibility": "PUBLIC"
+                }, 
+                {
+                    "location": {
+                        "column": 27, 
+                        "line": 4
+                    }, 
+                    "modifiers": [], 
+                    "name": "events", 
+                    "references": [
+                        {
+                            "column": 9, 
+                            "line": 16
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 30
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 45
+                        }, 
+                        {
+                            "column": 17, 
+                            "line": 61
+                        }
+                    ], 
+                    "type": "LIST", 
+                    "visibility": "PUBLIC"
+                }, 
+                {
+                    "location": {
+                        "column": 12, 
+                        "line": 7
+                    }, 
+                    "modifiers": [], 
+                    "name": "dtFormat", 
+                    "references": [
+                        {
+                            "column": 47, 
+                            "line": 25
+                        }, 
+                        {
+                            "column": 52, 
+                            "line": 41
+                        }, 
+                        {
+                            "column": 48, 
+                            "line": 42
+                        }, 
+                        {
+                            "column": 54, 
+                            "line": 57
+                        }, 
+                        {
+                            "column": 50, 
+                            "line": 58
+                        }
+                    ], 
+                    "type": "String", 
+                    "visibility": "PRIVATE"
+                }
+            ], 
+            "tableDeclaration": {
+                "location": {
+                    "column": 14, 
+                    "line": 1
+                }, 
+                "modifiers": [], 
+                "name": "CalendarExample_Controller", 
+                "references": [], 
+                "type": "CalendarExample_Controller"
+            }, 
+            "variables": [
+                {
+                    "location": {
+                        "column": 21, 
+                        "line": 18
+                    }, 
+                    "modifiers": [], 
+                    "name": "cont", 
+                    "references": [
+                        {
+                            "column": 26, 
+                            "line": 23
+                        }, 
+                        {
+                            "column": 49, 
+                            "line": 23
+                        }, 
+                        {
+                            "column": 30, 
+                            "line": 28
+                        }
+                    ], 
+                    "type": "Contact"
+                }, 
+                {
+                    "location": {
+                        "column": 22, 
+                        "line": 20
+                    }, 
+                    "modifiers": [], 
+                    "name": "startDT", 
+                    "references": [
+                        {
+                            "column": 32, 
+                            "line": 25
+                        }
+                    ], 
+                    "type": "Datetime"
+                }, 
+                {
+                    "location": {
+                        "column": 22, 
+                        "line": 21
+                    }, 
+                    "modifiers": [], 
+                    "name": "bday", 
+                    "references": [
+                        {
+                            "column": 13, 
+                            "line": 23
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 24
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 25
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 27
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 28
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 29
+                        }, 
+                        {
+                            "column": 24, 
+                            "line": 30
+                        }
+                    ], 
+                    "type": "calEvent"
+                }, 
+                {
+                    "location": {
+                        "column": 22, 
+                        "line": 34
+                    }, 
+                    "modifiers": [], 
+                    "name": "camp", 
+                    "references": [
+                        {
+                            "column": 32, 
+                            "line": 35
+                        }, 
+                        {
+                            "column": 30, 
+                            "line": 36
+                        }, 
+                        {
+                            "column": 31, 
+                            "line": 39
+                        }, 
+                        {
+                            "column": 35, 
+                            "line": 43
+                        }
+                    ], 
+                    "type": "Campaign"
+                }, 
+                {
+                    "location": {
+                        "column": 22, 
+                        "line": 35
+                    }, 
+                    "modifiers": [], 
+                    "name": "startDT", 
+                    "references": [
+                        {
+                            "column": 37, 
+                            "line": 41
+                        }
+                    ], 
+                    "type": "Datetime"
+                }, 
+                {
+                    "location": {
+                        "column": 22, 
+                        "line": 36
+                    }, 
+                    "modifiers": [], 
+                    "name": "endDT", 
+                    "references": [
+                        {
+                            "column": 35, 
+                            "line": 42
+                        }
+                    ], 
+                    "type": "Datetime"
+                }, 
+                {
+                    "location": {
+                        "column": 22, 
+                        "line": 37
+                    }, 
+                    "modifiers": [], 
+                    "name": "campEvent", 
+                    "references": [
+                        {
+                            "column": 13, 
+                            "line": 39
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 40
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 41
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 42
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 43
+                        }, 
+                        {
+                            "column": 13, 
+                            "line": 44
+                        }, 
+                        {
+                            "column": 24, 
+                            "line": 45
+                        }
+                    ], 
+                    "type": "calEvent"
+                }, 
+                {
+                    "location": {
+                        "column": 23, 
+                        "line": 50
+                    }, 
+                    "modifiers": [], 
+                    "name": "evnt", 
+                    "references": [
+                        {
+                            "column": 36, 
+                            "line": 51
+                        }, 
+                        {
+                            "column": 34, 
+                            "line": 52
+                        }, 
+                        {
+                            "column": 33, 
+                            "line": 55
+                        }, 
+                        {
+                            "column": 34, 
+                            "line": 56
+                        }, 
+                        {
+                            "column": 37, 
+                            "line": 59
+                        }
+                    ], 
+                    "type": "Event"
+                }, 
+                {
+                    "location": {
+                        "column": 26, 
+                        "line": 51
+                    }, 
+                    "modifiers": [], 
+                    "name": "startDT", 
+                    "references": [
+                        {
+                            "column": 39, 
+                            "line": 57
+                        }
+                    ], 
+                    "type": "Datetime"
+                }, 
+                {
+                    "location": {
+                        "column": 26, 
+                        "line": 52
+                    }, 
+                    "modifiers": [], 
+                    "name": "endDT", 
+                    "references": [
+                        {
+                            "column": 37, 
+                            "line": 58
+                        }
+                    ], 
+                    "type": "Datetime"
+                }, 
+                {
+                    "location": {
+                        "column": 26, 
+                        "line": 53
+                    }, 
+                    "modifiers": [], 
+                    "name": "myEvent", 
+                    "references": [
+                        {
+                            "column": 17, 
+                            "line": 55
+                        }, 
+                        {
+                            "column": 17, 
+                            "line": 56
+                        }, 
+                        {
+                            "column": 17, 
+                            "line": 57
+                        }, 
+                        {
+                            "column": 17, 
+                            "line": 58
+                        }, 
+                        {
+                            "column": 17, 
+                            "line": 59
+                        }, 
+                        {
+                            "column": 17, 
+                            "line": 60
+                        }, 
+                        {
+                            "column": 28, 
+                            "line": 61
+                        }
+                    ], 
+                    "type": "calEvent"
+                }
+            ]
+        }, 
+        "type": "ApexClass"
+    }, 
+    "ChangePasswordController.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:32", 
+        "fileName": "unpackaged/classes/ChangePasswordController.cls", 
+        "fullName": "ChangePasswordController", 
+        "id": "01pG0000003nHWaIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:32", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "ChangePasswordControllerTest.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:32", 
+        "fileName": "unpackaged/classes/ChangePasswordControllerTest.cls", 
+        "fullName": "ChangePasswordControllerTest", 
+        "id": "01pG0000003nHWbIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:32", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "ChatterAnswersAuthProviderRegistration.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-23 14:48:30", 
+        "fileName": "unpackaged/classes/ChatterAnswersAuthProviderRegistration.cls", 
+        "fullName": "ChatterAnswersAuthProviderRegistration", 
+        "id": "01pG0000003nMMIIA2", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-23 14:48:30", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "ChatterAnswersCreateAccountTest.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-23 14:48:29", 
+        "fileName": "unpackaged/classes/ChatterAnswersCreateAccountTest.cls", 
+        "fullName": "ChatterAnswersCreateAccountTest", 
+        "id": "01pG0000003nMMHIA2", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-23 14:48:29", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "ChatterAnswersEscalationTriggerTest.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-23 14:48:29", 
+        "fileName": "unpackaged/classes/ChatterAnswersEscalationTriggerTest.cls", 
+        "fullName": "ChatterAnswersEscalationTriggerTest", 
+        "id": "01pG0000003nMMGIA2", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-23 14:48:29", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "ChatterAnswersRegistration.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-23 14:48:28", 
+        "fileName": "unpackaged/classes/ChatterAnswersRegistration.cls", 
+        "fullName": "ChatterAnswersRegistration", 
+        "id": "01pG0000003nMMFIA2", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-23 14:48:28", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "CommunitiesLandingController.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:36", 
+        "fileName": "unpackaged/classes/CommunitiesLandingController.cls", 
+        "fullName": "CommunitiesLandingController", 
+        "id": "01pG0000003nHWiIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:36", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "CommunitiesLandingControllerTest.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:36", 
+        "fileName": "unpackaged/classes/CommunitiesLandingControllerTest.cls", 
+        "fullName": "CommunitiesLandingControllerTest", 
+        "id": "01pG0000003nHWjIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:36", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "CommunitiesLoginController.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:36", 
+        "fileName": "unpackaged/classes/CommunitiesLoginController.cls", 
+        "fullName": "CommunitiesLoginController", 
+        "id": "01pG0000003nHWgIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:36", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "CommunitiesLoginControllerTest.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:36", 
+        "fileName": "unpackaged/classes/CommunitiesLoginControllerTest.cls", 
+        "fullName": "CommunitiesLoginControllerTest", 
+        "id": "01pG0000003nHWhIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:36", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "CommunitiesSelfRegConfirmController.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:36", 
+        "fileName": "unpackaged/classes/CommunitiesSelfRegConfirmController.cls", 
+        "fullName": "CommunitiesSelfRegConfirmController", 
+        "id": "01pG0000003nHWmIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:36", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "CommunitiesSelfRegConfirmControllerTest.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:36", 
+        "fileName": "unpackaged/classes/CommunitiesSelfRegConfirmControllerTest.cls", 
+        "fullName": "CommunitiesSelfRegConfirmControllerTest", 
+        "id": "01pG0000003nHWnIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:36", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "CommunitiesSelfRegController.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:36", 
+        "fileName": "unpackaged/classes/CommunitiesSelfRegController.cls", 
+        "fullName": "CommunitiesSelfRegController", 
+        "id": "01pG0000003nHWkIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:36", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "CommunitiesSelfRegControllerTest.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:36", 
+        "fileName": "unpackaged/classes/CommunitiesSelfRegControllerTest.cls", 
+        "fullName": "CommunitiesSelfRegControllerTest", 
+        "id": "01pG0000003nHWlIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:36", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "DisponibilidadReservacion.trigger": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-23 14:28:57", 
+        "fileName": "unpackaged/triggers/DisponibilidadReservacion.trigger", 
+        "fullName": "DisponibilidadReservacion", 
+        "id": "01qG0000000jw5uIAA", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-27 18:54:33", 
+        "manageableState": "unmanaged", 
+        "type": "ApexTrigger"
+    }, 
+    "ForgotPasswordController.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:32", 
+        "fileName": "unpackaged/classes/ForgotPasswordController.cls", 
+        "fullName": "ForgotPasswordController", 
+        "id": "01pG0000003nHWcIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:32", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "ForgotPasswordControllerTest.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:32", 
+        "fileName": "unpackaged/classes/ForgotPasswordControllerTest.cls", 
+        "fullName": "ForgotPasswordControllerTest", 
+        "id": "01pG0000003nHWdIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:32", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "IdeasListPageExtension.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-24 12:45:14", 
+        "fileName": "unpackaged/classes/IdeasListPageExtension.cls", 
+        "fullName": "IdeasListPageExtension", 
+        "id": "01pG0000003nOxzIAE", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-24 12:51:32", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "MisReservacionesController.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-23 12:22:34", 
+        "fileName": "unpackaged/classes/MisReservacionesController.cls", 
+        "fullName": "MisReservacionesController", 
+        "id": "01pG0000003nLh8IAE", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-25 22:09:36", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "MyProfilePageController.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:32", 
+        "fileName": "unpackaged/classes/MyProfilePageController.cls", 
+        "fullName": "MyProfilePageController", 
+        "id": "01pG0000003nHWeIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:32", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "MyProfilePageControllerTest.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:33", 
+        "fileName": "unpackaged/classes/MyProfilePageControllerTest.cls", 
+        "fullName": "MyProfilePageControllerTest", 
+        "id": "01pG0000003nHWfIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:33", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "NuevaReservacionController.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 12:32:03", 
+        "fileName": "unpackaged/classes/NuevaReservacionController.cls", 
+        "fullName": "NuevaReservacionController", 
+        "id": "01pG0000003nI9sIAE", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-27 19:32:38", 
+        "manageableState": "unmanaged", 
+        "symbolTable": {
+            "constructors": [
+                {
+                    "location": {
+                        "column": 12, 
+                        "line": 7
+                    }, 
+                    "modifiers": [], 
+                    "name": "NuevaReservacionController", 
+                    "parameters": [], 
+                    "references": [], 
+                    "type": null, 
+                    "visibility": "PUBLIC"
+                }
+            ], 
+            "externalReferences": [], 
+            "id": "01pG0000003nI9s", 
+            "innerClasses": [], 
+            "key": "01pG0000003nI9s", 
+            "methods": [
+                {
+                    "location": {
+                        "column": 26, 
+                        "line": 20
+                    }, 
+                    "modifiers": [], 
+                    "name": "agendar", 
+                    "parameters": [], 
+                    "references": [], 
+                    "returnType": "PageReference", 
+                    "type": null, 
+                    "visibility": "PUBLIC"
+                }, 
+                {
+                    "location": {
+                        "column": 31, 
+                        "line": 41
+                    }, 
+                    "modifiers": [], 
+                    "name": "getAmenidades", 
+                    "parameters": [], 
+                    "references": [], 
+                    "returnType": "LIST", 
+                    "type": null, 
+                    "visibility": "PUBLIC"
+                }, 
+                {
+                    "location": {
+                        "column": 17, 
+                        "line": 53
+                    }, 
+                    "modifiers": [], 
+                    "name": "detallesAmenidad", 
+                    "parameters": [], 
+                    "references": [], 
+                    "returnType": "void", 
+                    "type": null, 
+                    "visibility": "PUBLIC"
+                }, 
+                {
+                    "location": {
+                        "column": 17, 
+                        "line": 65
+                    }, 
+                    "modifiers": [], 
+                    "name": "listaReservacionesPorDia", 
+                    "parameters": [], 
+                    "references": [], 
+                    "returnType": "void", 
+                    "type": null, 
+                    "visibility": "PUBLIC"
+                }
+            ], 
+            "name": "NuevaReservacionController", 
+            "namespace": null, 
+            "properties": [
+                {
+                    "location": {
+                        "column": 37, 
+                        "line": 3
+                    }, 
+                    "modifiers": [], 
+                    "name": "reservacionAmenidad", 
+                    "references": [
+                        {
+                            "column": 9, 
+                            "line": 11
+                        }, 
+                        {
+                            "column": 20, 
+                            "line": 28
+                        }, 
+                        {
+                            "column": 140, 
+                            "line": 29
+                        }, 
+                        {
+                            "column": 176, 
+                            "line": 29
+                        }, 
+                        {
+                            "column": 220, 
+                            "line": 29
+                        }, 
+                        {
+                            "column": 95, 
+                            "line": 61
+                        }, 
+                        {
+                            "column": 19, 
+                            "line": 55
+                        }, 
+                        {
+                            "column": 65, 
+                            "line": 77
+                        }, 
+                        {
+                            "column": 65, 
+                            "line": 92
+                        }, 
+                        {
+                            "column": 67, 
+                            "line": 93
+                        }, 
+                        {
+                            "column": 12, 
+                            "line": 69
+                        }
+                    ], 
+                    "type": "Reservacion_Amenidad__c", 
+                    "visibility": "PUBLIC"
+                }, 
+                {
+                    "location": {
+                        "column": 25, 
+                        "line": 4
+                    }, 
+                    "modifiers": [], 
+                    "name": "amenidad", 
+                    "references": [
+                        {
+                            "column": 122, 
+                            "line": 29
+                        }, 
+                        {
+                            "column": 7, 
+                            "line": 55
+                        }
+                    ], 
+                    "type": "Amenidad__c", 
+                    "visibility": "PUBLIC"
+                }, 
+                {
+                    "location": {
+                        "column": 42, 
+                        "line": 5
+                    }, 
+                    "modifiers": [], 
+                    "name": "reservacionesActuales", 
+                    "references": [
+                        {
+                            "column": 9, 
+                            "line": 10
+                        }, 
+                        {
+                            "column": 9, 
+                            "line": 67
+                        }, 
+                        {
+                            "column": 17, 
+                            "line": 81
+                        }, 
+                        {
+                            "column": 17, 
+                            "line": 97
+                        }
+                    ], 
+                    "type": "LIST", 
+                    "visibility": "PUBLIC"
+                }
+            ], 
+            "tableDeclaration": {
+                "location": {
+                    "column": 14, 
+                    "line": 1
+                }, 
+                "modifiers": [], 
+                "name": "NuevaReservacionController", 
+                "references": [], 
+                "type": "NuevaReservacionController"
+            }, 
+            "variables": [
+                {
+                    "location": {
+                        "column": 12, 
+                        "line": 9
+                    }, 
+                    "modifiers": [], 
+                    "name": "id", 
+                    "references": [
+                        {
+                            "column": 90, 
+                            "line": 17
+                        }, 
+                        {
+                            "column": 32, 
+                            "line": 11
+                        }
+                    ], 
+                    "type": "Id"
+                }, 
+                {
+                    "location": {
+                        "column": 23, 
+                        "line": 22
+                    }, 
+                    "modifiers": [], 
+                    "name": "pr", 
+                    "references": [
+                        {
+                            "column": 9, 
+                            "line": 23
+                        }, 
+                        {
+                            "column": 20, 
+                            "line": 33
+                        }
+                    ], 
+                    "type": "PageReference"
+                }, 
+                {
+                    "location": {
+                        "column": 31, 
+                        "line": 29
+                    }, 
+                    "modifiers": [], 
+                    "name": "msg", 
+                    "references": [
+                        {
+                            "column": 34, 
+                            "line": 30
+                        }
+                    ], 
+                    "type": "Message"
+                }, 
+                {
+                    "location": {
+                        "column": 26, 
+                        "line": 43
+                    }, 
+                    "modifiers": [], 
+                    "name": "opcionesAmenid", 
+                    "references": [
+                        {
+                            "column": 7, 
+                            "line": 44
+                        }, 
+                        {
+                            "column": 9, 
+                            "line": 47
+                        }, 
+                        {
+                            "column": 14, 
+                            "line": 50
+                        }
+                    ], 
+                    "type": "LIST"
+                }, 
+                {
+                    "location": {
+                        "column": 24, 
+                        "line": 46
+                    }, 
+                    "modifiers": [], 
+                    "name": "amenidades", 
+                    "references": [
+                        {
+                            "column": 45, 
+                            "line": 47
+                        }, 
+                        {
+                            "column": 60, 
+                            "line": 47
+                        }
+                    ], 
+                    "type": "Amenidad__c"
+                }, 
+                {
+                    "location": {
+                        "column": 42, 
+                        "line": 71
+                    }, 
+                    "modifiers": [], 
+                    "name": "a", 
+                    "references": [
+                        {
+                            "column": 43, 
+                            "line": 81
+                        }
+                    ], 
+                    "type": "Reservacion_Amenidad__c"
+                }, 
+                {
+                    "location": {
+                        "column": 42, 
+                        "line": 86
+                    }, 
+                    "modifiers": [], 
+                    "name": "a", 
+                    "references": [
+                        {
+                            "column": 43, 
+                            "line": 97
+                        }
+                    ], 
+                    "type": "Reservacion_Amenidad__c"
+                }
+            ]
+        }, 
+        "type": "ApexClass"
+    }, 
+    "ReservacionAmenidadTrigger.trigger": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-27 16:46:36", 
+        "fileName": "unpackaged/triggers/ReservacionAmenidadTrigger.trigger", 
+        "fullName": "ReservacionAmenidadTrigger", 
+        "id": "01qG0000000jyT8IAI", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-27 19:02:07", 
+        "manageableState": "unmanaged", 
+        "type": "ApexTrigger"
+    }, 
+    "ReservacionAmenidadTriggerService.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-27 16:54:14", 
+        "fileName": "unpackaged/classes/ReservacionAmenidadTriggerService.cls", 
+        "fullName": "ReservacionAmenidadTriggerService", 
+        "id": "01pG0000003nVRiIAM", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-27 17:02:11", 
+        "manageableState": "unmanaged", 
+        "symbolTable": {
+            "constructors": [], 
+            "externalReferences": [], 
+            "id": "01pG0000003nVRi", 
+            "innerClasses": [], 
+            "key": "01pG0000003nVRi", 
+            "methods": [
+                {
+                    "location": {
+                        "column": 25, 
+                        "line": 3
+                    }, 
+                    "modifiers": [
+                        "STATIC"
+                    ], 
+                    "name": "convertToDateTime", 
+                    "parameters": [
+                        {
+                            "name": "fecha", 
+                            "type": "Date"
+                        }, 
+                        {
+                            "name": "tiempo", 
+                            "type": "String"
+                        }
+                    ], 
+                    "references": [], 
+                    "returnType": "Datetime", 
+                    "type": null, 
+                    "visibility": "PUBLIC"
+                }
+            ], 
+            "name": "ReservacionAmenidadTriggerService", 
+            "namespace": null, 
+            "properties": [], 
+            "tableDeclaration": {
+                "location": {
+                    "column": 14, 
+                    "line": 1
+                }, 
+                "modifiers": [], 
+                "name": "ReservacionAmenidadTriggerService", 
+                "references": [], 
+                "type": "ReservacionAmenidadTriggerService"
+            }, 
+            "variables": [
+                {
+                    "location": {
+                        "column": 48, 
+                        "line": 3
+                    }, 
+                    "modifiers": [], 
+                    "name": "fecha", 
+                    "references": [
+                        {
+                            "column": 52, 
+                            "line": 22
+                        }, 
+                        {
+                            "column": 66, 
+                            "line": 22
+                        }, 
+                        {
+                            "column": 81, 
+                            "line": 22
+                        }
+                    ], 
+                    "type": "Date"
+                }, 
+                {
+                    "location": {
+                        "column": 62, 
+                        "line": 3
+                    }, 
+                    "modifiers": [], 
+                    "name": "tiempo", 
+                    "references": [
+                        {
+                            "column": 30, 
+                            "line": 5
+                        }
+                    ], 
+                    "type": "String"
+                }, 
+                {
+                    "location": {
+                        "column": 16, 
+                        "line": 5
+                    }, 
+                    "modifiers": [], 
+                    "name": "tiempoSplit", 
+                    "references": [
+                        {
+                            "column": 40, 
+                            "line": 7
+                        }, 
+                        {
+                            "column": 36, 
+                            "line": 10
+                        }
+                    ], 
+                    "type": "LIST"
+                }, 
+                {
+                    "location": {
+                        "column": 17, 
+                        "line": 7
+                    }, 
+                    "modifiers": [], 
+                    "name": "hora", 
+                    "references": [
+                        {
+                            "column": 13, 
+                            "line": 18
+                        }, 
+                        {
+                            "column": 18, 
+                            "line": 18
+                        }, 
+                        {
+                            "column": 35, 
+                            "line": 17
+                        }, 
+                        {
+                            "column": 94, 
+                            "line": 22
+                        }
+                    ], 
+                    "type": "Integer"
+                }, 
+                {
+                    "location": {
+                        "column": 22, 
+                        "line": 10
+                    }, 
+                    "modifiers": [], 
+                    "name": "minutoSplit", 
+                    "references": [
+                        {
+                            "column": 42, 
+                            "line": 13
+                        }, 
+                        {
+                            "column": 23, 
+                            "line": 14
+                        }
+                    ], 
+                    "type": "LIST"
+                }, 
+                {
+                    "location": {
+                        "column": 17, 
+                        "line": 13
+                    }, 
+                    "modifiers": [], 
+                    "name": "minuto", 
+                    "references": [
+                        {
+                            "column": 100, 
+                            "line": 22
+                        }
+                    ], 
+                    "type": "Integer"
+                }, 
+                {
+                    "location": {
+                        "column": 16, 
+                        "line": 14
+                    }, 
+                    "modifiers": [], 
+                    "name": "AMPM", 
+                    "references": [
+                        {
+                            "column": 12, 
+                            "line": 17
+                        }
+                    ], 
+                    "type": "String"
+                }, 
+                {
+                    "location": {
+                        "column": 18, 
+                        "line": 22
+                    }, 
+                    "modifiers": [], 
+                    "name": "miFecha", 
+                    "references": [
+                        {
+                            "column": 10, 
+                            "line": 24
+                        }
+                    ], 
+                    "type": "Datetime"
+                }
+            ]
+        }, 
+        "type": "ApexClass"
+    }, 
+    "SampleClass.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-27 11:02:59", 
+        "fileName": "unpackaged/classes/SampleClass.cls", 
+        "fullName": "SampleClass", 
+        "id": "01pG0000003nUELIA2", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-27 16:20:04", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "SiteLoginController.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:32", 
+        "fileName": "unpackaged/classes/SiteLoginController.cls", 
+        "fullName": "SiteLoginController", 
+        "id": "01pG0000003nHWWIA2", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:32", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "SiteLoginControllerTest.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:32", 
+        "fileName": "unpackaged/classes/SiteLoginControllerTest.cls", 
+        "fullName": "SiteLoginControllerTest", 
+        "id": "01pG0000003nHWXIA2", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:32", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "SiteRegisterController.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:32", 
+        "fileName": "unpackaged/classes/SiteRegisterController.cls", 
+        "fullName": "SiteRegisterController", 
+        "id": "01pG0000003nHWYIA2", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:32", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "SiteRegisterControllerTest.cls": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-22 10:00:32", 
+        "fileName": "unpackaged/classes/SiteRegisterControllerTest.cls", 
+        "fullName": "SiteRegisterControllerTest", 
+        "id": "01pG0000003nHWZIA2", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-22 10:00:32", 
+        "manageableState": "unmanaged", 
+        "type": "ApexClass"
+    }, 
+    "chatter_answers_question_escalation_to_case_trigger.trigger": {
+        "createdById": "005G0000003saGgIAI", 
+        "createdByName": "Pedro Jauregui", 
+        "createdDate": "2014-01-23 14:48:26", 
+        "fileName": "unpackaged/triggers/chatter_answers_question_escalation_to_case_trigger.trigger", 
+        "fullName": "chatter_answers_question_escalation_to_case_trigger", 
+        "id": "01qG0000000jw64IAA", 
+        "lastModifiedById": "005G0000003saGgIAI", 
+        "lastModifiedByName": "Pedro Jauregui", 
+        "lastModifiedDate": "2014-01-23 14:48:26", 
+        "manageableState": "unmanaged", 
+        "type": "ApexTrigger"
+    }
+}

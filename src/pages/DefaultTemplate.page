@@ -1,0 +1,38 @@
+<apex:page >
+	
+	<apex:stylesheet value="{!$Resource.defaultStyle}"/>
+
+	<div id="wrapper">
+		<div id="header">
+			<apex:insert name="header"/>
+		</div>
+		<div id="contentWrapper">
+			<!--
+			<div id="menuWrapper"> 
+				
+				<ul class="menu">
+					<li>Home</li>
+					<li><apex:outputLink value="/ChatterFeed" id="chatterFeed">Chatter</apex:outputLink></li>
+					<li>Control Presupuestal</li>
+					<li>Ideas</li>
+					<li><apex:outputLink value="/NuevaReservacion" id="amenidades">Amenidades</apex:outputLink></li>
+					<li>Asambleas</li>
+					<li>Quejas</li>
+				</ul>
+				
+			</div>
+			-->
+			<div id="bodyWrapper">
+				<div id="subheader">
+					<ul>
+						<apex:insert name="subMenu"/>
+					</ul>
+
+				</div>
+				<div id="mainContentWrapper">
+					<apex:insert name="body"/>
+				</div>
+			</div>			
+		</div>
+	</div>	
+</apex:page>

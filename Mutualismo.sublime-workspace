@@ -1,0 +1,989 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Hora",
+				"Hora_de_Termino__c"
+			],
+			[
+				"A",
+				"Amenidad__c"
+			],
+			[
+				"sta",
+				"standardStylesheets	(Boolean)"
+			],
+			[
+				"exe",
+				"extensions	(String)"
+			],
+			[
+				"action",
+				"apex:actionRegion"
+			],
+			[
+				"show",
+				"showHeader	(Boolean)"
+			],
+			[
+				"NULL",
+				"null"
+			],
+			[
+				"get",
+				"getSObjectType"
+			],
+			[
+				"Oportuni",
+				"Oportunidad_Padre__c"
+			],
+			[
+				"Ext",
+				"ExternalId__c"
+			],
+			[
+				"output",
+				"apex:outputLabel"
+			],
+			[
+				"outpu",
+				"apex:outputField"
+			],
+			[
+				"page",
+				"apex:pageBlockSection"
+			],
+			[
+				"searc",
+				"searchQuery"
+			],
+			[
+				"inpu",
+				"apex:inputText"
+			],
+			[
+				"ge",
+				"getMessage() 	String"
+			],
+			[
+				"poliza",
+				"polizasToBeVip"
+			],
+			[
+				"set",
+				"setRedirect(Boolean redirect) 	System.PageReference"
+			],
+			[
+				"pageBlco",
+				"apex:pageBlockButtons"
+			],
+			[
+				"Test_C",
+				"Test_CharityAuctions_DataGenerator"
+			],
+			[
+				"bidders",
+				"biddersToUpdate"
+			],
+			[
+				"Win",
+				"Winning_Bid_Amount__c"
+			],
+			[
+				"asser",
+				"assertEquals()"
+			],
+			[
+				"Auction_",
+				"Auction_Status__c"
+			],
+			[
+				"r",
+				"Reserve_Amount__c"
+			],
+			[
+				"Bid",
+				"Bid_Amount__c"
+			],
+			[
+				"Bi",
+				"Bid_Amount__c"
+			],
+			[
+				"AUCTION_",
+				"PUBLIC AUCTION_ACTIVE_STATUS	String"
+			],
+			[
+				"Bid_",
+				"High_Bidder__c"
+			],
+			[
+				"Auction",
+				"Auction_Status__c"
+			],
+			[
+				"is",
+				"PUBLIC isBiddable	Boolean"
+			],
+			[
+				"ERROR_",
+				"PUBLIC ERROR_MULTIPLE_BIDS_MSG	String"
+			],
+			[
+				"ERROR_BID_",
+				"PUBLIC ERROR_INCREASE_CURRENT_BID_MSG	String"
+			],
+			[
+				"high",
+				"high_bidder__c"
+			],
+			[
+				"Chairty",
+				"CharityAuctionConstants"
+			],
+			[
+				"Charity",
+				"CharityAuctionConstants"
+			],
+			[
+				"CHARI",
+				"PUBLIC CHARITY_ADMIN_PROFILE_NAME	String"
+			],
+			[
+				"s",
+				"GLOBAL success	Boolean"
+			],
+			[
+				"Cliente",
+				"ClienteResult"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/pages/ChatterFeed.page",
+			"settings":
+			{
+				"buffer_size": 400,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/pages/DefaultTemplate.page",
+			"settings":
+			{
+				"buffer_size": 829,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/staticresources/defaultStyle.resource",
+			"settings":
+			{
+				"buffer_size": 749,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/pages/NuevaReservacion.page",
+			"settings":
+			{
+				"buffer_size": 2247,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "trigger DisponibilidadReservacion on Reservacion_Amenidad__c (before insert, before update) {\n    \n    \n    \n    for (Reservacion_Amenidad__c objReservacionAmeni : Trigger.new) \n    {\n        \n        List<DATETIME> listaFechasHorasInicialesExistentes = new List<DATETIME>();\n        List<DATETIME> listaFechasHorasFinalesExistentes = new List<DATETIME>();\n        /// Seccion Obtencion de DATETIME Solicitada\n        Date fechaSolicitada = objReservacionAmeni.Fecha__c;\n        \n        List<String> LihoraInicioSolicitada = objReservacionAmeni.Hora_de_Inicio__c.split(':');\n        List<String> LishoraFinSolicitada = objReservacionAmeni.Hora_de_Termino__c.split(':');\n        \n        integer horaInicioUnicamente = integer.valueof(LihoraInicioSolicitada[0]);\n        integer horaFinUnicamente = integer.valueof(LishoraFinSolicitada[0]);\n        \n        List<String> minIniPAM = LihoraInicioSolicitada[1].split(' ');\n        List<String> minFinPAM = LishoraFinSolicitada[1].split(' ');\n        \n        integer minIni = integer.valueof(minIniPAM[0]);\n        string PAMIni = minIniPAM[1];\n        \n        integer minFin = integer.valueof(minFinPAM[0]);\n        string PAMFin = minFinPAM[1];\n        \n        if(PAMIni.contains('pm') && horaInicioUnicamente != 12)\n        {\n            horaInicioUnicamente=horaInicioUnicamente+12;\n        }\n        \n        if(PAMFin.contains('pm') && horaFinUnicamente != 12)\n        {\n            horaFinUnicamente=horaFinUnicamente+12;\n        }\n        \n        Datetime fechaHoraInicial = datetime.newInstanceGmt(fechaSolicitada.year(), fechaSolicitada.month(), fechaSolicitada.day(), horaInicioUnicamente, minIni, 0);\n        Datetime fechaHoraFinal = datetime.newInstanceGmt(fechaSolicitada.year(), fechaSolicitada.month(), fechaSolicitada.day(), horaFinUnicamente, minFin, 0);\n        \n        System.Debug('XDfechaHoraInicial'+fechaHoraInicial);\n        System.Debug('XDfechaHoraFinal '+fechaHoraFinal);\n        /////// Fin de la Seccion \n        \n        for( Reservacion_Amenidad__c a : [SELECT Name, \n                                          Amenidad__c, \n                                          Fecha__c,\n                                          Hora_de_Inicio__c,\n                                          Hora_de_Termino__c\n                                          FROM Reservacion_Amenidad__c\n                                          Where Amenidad__c = : objReservacionAmeni.Amenidad__c\n                                          AND Fecha__c = :objReservacionAmeni.Fecha__c\n                                         ])\n        {\n            ///Seccion hace listas de las Datetime existentes\n            Date fechaExistenteaAnadir = a.Fecha__c;\n            \n            List<String> LihoraInicioAnadir = a.Hora_de_Inicio__c.split(':');\n            List<String> LishoraFinAnadir = a.Hora_de_Termino__c.split(':');\n            \n            integer horaInicioUnicamenteAnadir = integer.valueof(LihoraInicioAnadir[0]);\n            integer horaFinUnicamenteAnadir = integer.valueof(LishoraFinAnadir[0]);\n            \n            List<String> minIniPAMAnadir = LihoraInicioAnadir[1].split(' ');\n            List<String> minFinPAMAnadir = LishoraFinAnadir[1].split(' ');\n            \n            integer minIniAnadir = integer.valueof(minIniPAMAnadir[0]);\n            string PAMIniAnadir = minIniPAMAnadir[1];\n            \n            integer minFinAnadir = integer.valueof(minFinPAMAnadir[0]);\n            string PAMFinAnadir = minFinPAMAnadir[1];\n            \n            if(PAMIniAnadir.contains('pm') && horaInicioUnicamenteAnadir != 12)\n            {\n                horaInicioUnicamenteAnadir=horaInicioUnicamenteAnadir+12;\n            }\n            \n            if(PAMFinAnadir.contains('pm') && horaFinUnicamenteAnadir != 12)\n            {\n                horaFinUnicamenteAnadir=horaFinUnicamenteAnadir+12;\n            }\n            \n            Datetime fechaHoraInicialAnadir = datetime.newInstanceGmt(fechaExistenteaAnadir.year(), fechaExistenteaAnadir.month(), fechaExistenteaAnadir.day(), horaInicioUnicamenteAnadir, minIniAnadir, 0);\n            Datetime fechaHoraFinalAnadir = datetime.newInstanceGmt(fechaExistenteaAnadir.year(), fechaExistenteaAnadir.month(), fechaExistenteaAnadir.day(), horaFinUnicamenteAnadir, minFinAnadir, 0);\n            \n                System.debug('XDFECHAINICIALAÑADIR'+fechaHoraInicialAnadir);\n            \n            listaFechasHorasInicialesExistentes.add(fechaHoraInicialAnadir);\n            listaFechasHorasFinalesExistentes.add(fechaHoraFinalAnadir);\n            \n                            System.debug('XDlista'+listaFechasHorasInicialesExistentes);\n\n            ///fin seccion\n        }\n        \n        System.debug('XDlistaAfuera '+listaFechasHorasInicialesExistentes);\n\n        //Seccion de Comparecion de Datetime actual con lista\n        if(listaFechasHorasInicialesExistentes != null && listaFechasHorasInicialesExistentes.size() > 0)\n        {\n            string pruebaError= 'ok';\n            System.debug('XDlistatamaño '+listaFechasHorasInicialesExistentes.size());\n\n            System.debug('XDpruebaeRROR'+pruebaError);\n            \n            for(integer i=0; i == listaFechasHorasInicialesExistentes.size(); i++)\n            {\n                System.debug('XDpruebaeRROR'+pruebaError);\n                if((fechaHoraInicial >= listaFechasHorasInicialesExistentes[i] && fechaHoraInicial <= listaFechasHorasFinalesExistentes[i]) \n                   || (fechaHoraFinal >= listaFechasHorasInicialesExistentes[i] && fechaHorafinal <= listaFechasHorasFinalesExistentes[i]) \n                   || (listaFechasHorasInicialesExistentes[i] >= fechaHoraInicial &&  listaFechasHorasInicialesExistentes[i] <= fechaHoraFinal) \n                   || (listaFechasHorasFinalesExistentes[i] >= fechaHoraInicial && listaFechasHorasFinalesExistentes[i] < = fechaHoraFinal )\n                   || pruebaError=='ok')\n                    \n                {\n                    objReservacionAmeni.Hora_de_Inicio__c.addError('No hay Reservaciones disponibles en ese rango de Tiempo');\n                }\n            }\n        }\n        /// fin seccion\n    }\n    \n}",
+			"file": "src/triggers/DisponibilidadReservacion.trigger",
+			"file_size": 6156,
+			"file_write_time": 130353353130000000,
+			"settings":
+			{
+				"buffer_size": 6163,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "trigger ReservacionAmenidadTrigger on Reservacion_Amenidad__c (before insert) {\n\n\n	if(trigger.isBefore && trigger.isInsert){\n\n		Set<Date> fechasInvolcradas = new Set<Date>();\n		Set<Id> amenidadesInvolcradas = new Set<Id>();\n\n		for (Reservacion_Amenidad__c reservacion : trigger.new) {\n			fechasInvolcradas.add(reservacion.Fecha__c);\n			amenidadesInvolcradas.add(reservacion.Amenidad__c);\n		}\n\n\n\n		List<Reservacion_Amenidad__c> reservacionesActuales = [Select id, \n																		Fecha__c,\n																		Amenidad__c,\n																		Hora_de_Inicio__c,\n																		Hora_de_Termino__c\n																		from Reservacion_Amenidad__c where Fecha__c in:fechasInvolcradas and Amenidad__c in: amenidadesInvolcradas];\n\n															\n		for (Reservacion_Amenidad__c reservacion : trigger.new) {\n\n\n			for(Reservacion_Amenidad__c reservacionActual :  reservacionesActuales){\n\n				//Revisamos que la reservación sea para la misma amenidad de nuestra reservación Actual\n				if(reservacionActual.Amenidad__c == reservacion.Amenidad__c){\n\n					//Convertimos a Datetime la fecha inicio y fecha final de mi reservación Actual\n					Datetime fechaInicio = ReservacionAmenidadTriggerService.convertToDateTime(reservacion.Fecha__c, reservacion.Hora_de_Inicio__c);\n					Datetime fechaFin = ReservacionAmenidadTriggerService.convertToDateTime(reservacion.Fecha__c, reservacion.Hora_de_Termino__c);\n\n					Datetime fechaInicioActual = ReservacionAmenidadTriggerService.convertToDateTime(reservacionActual.Fecha__c, reservacionActual.Hora_de_Inicio__c);\n					Datetime fechaFinActual = ReservacionAmenidadTriggerService.convertToDateTime(reservacionActual.Fecha__c, reservacionActual.Hora_de_Termino__c);\n\n					if((fechaInicio >= 'fechaInicioActual' && fechaInicio <= fechaFinActual) \n			                   || (fechaFin >= fechaInicioActual && fechaFin <= fechaFinActual) \n			                   || (fechaInicioActual >= fechaInicio &&  fechaInicioActual <= fechaFin) \n			                   || (fechaFinActual >= fechaInicio && fechaFinActual < = fechaFin )){\n\n                    	reservacion.Hora_de_Inicio__c.addError('No hay Reservaciones disponibles en ese rango de Tiempo');\n\n                	}\n				}\n			}\n		}\n	}\n\n}",
+			"file": "src/triggers/ReservacionAmenidadTrigger.trigger",
+			"file_size": 2209,
+			"file_write_time": 130353392840000000,
+			"settings":
+			{
+				"buffer_size": 2208,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/ReservacionAmenidadTriggerService.cls",
+			"settings":
+			{
+				"buffer_size": 690,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/pages/IdeasListPage.page",
+			"settings":
+			{
+				"buffer_size": 98,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/IdeasListPageExtension.cls",
+			"settings":
+			{
+				"buffer_size": 302,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"New",
+				"MavensMate: New Apex Class"
+			],
+			[
+				"Run",
+				"MavensMate: Run Apex Tests..."
+			],
+			[
+				"Ne",
+				"MavensMate: New Visualforce Page"
+			],
+			[
+				"run",
+				"MavensMate: Run Apex Tests..."
+			],
+			[
+				"new",
+				"MavensMate: New Apex Class"
+			],
+			[
+				"runt",
+				"MavensMate: Run Apex Tests..."
+			]
+		],
+		"width": 431.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"version",
+			"fdasd"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/Ideas.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/classes/NuevaReservacionController.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/DefaultTemplate.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/staticresources/defaultStyle.resource",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/ChatterFeed.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/CalendarTest.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/classes/CalendarExample_Controller.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/NuevaReservacion.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/staticresources/cocina.resource",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/ChatterAnswersRegistration.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/ChatterAnswersHelp.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/ChatterAnswersHelp.page-meta.xml",
+		"/Users/pedrojauregui/Documents/Cloudco/DeveloperCommunity/Assets/style.css",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/ChangePassword.page-meta.xml",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/CommunitiesTemplate.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/CommunitiesLogin.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Mutualismo/src/pages/SiteTemplate.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/classes/CalculadorasRORCValidaAprobaciones.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/pages/EC_Clon.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/components/EC_Executive_Summary.component",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/pages/Estudio_de_Credito.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/classes/CreaEstudioCreditoExtension.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/pages/VisitAnalyticsEscenarioCalculadoraRORC.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/classes/testAccountExtensionNew.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/staticresources/PlanEjecucionV1.resource",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/classes/Plan_Ejecucion_Service.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/classes/Plan_Ejecucion_Service.cls-meta.xml",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/pages/VisitAnalyticsSaldoVariablesFinancieras.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/classes/AnalisiFuentesPagoController.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/staticresources/Amarillo.resource",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/classes/CalculadorasRORCController.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/classes/br_cuentas_alex.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/classes/EC_Credit_Analysis_Ctrll.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Banamex DEV/src/pages/Caratula.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/Batch_OportunidadesNoGanadas.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/AttachmentTriggerTest.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/triggers/AttachmentTrigger.trigger",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/triggers/OpportunityTrigger.trigger",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/Service_OpportunityTrigger.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/Test_GenerateTestData.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/Test_OportunidadesNoGanadas.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/AttachmentTriggerService.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/components/attachcontentcomponent.component",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/triggers/AccountTrigger.trigger",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/Recomendaciones.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/pages/RiskUbicationReport.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/Test_MockResponseOpportunityToWims.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/Test_AccountTrigger.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/testBenito.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/tempuriOrg.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/pages/tabRiskInspect.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/ContentController.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/pages/Newrisklocation.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/pages/PolizasVIPOpportunity.page",
+		"/Users/pedrojauregui/Library/Application Support/Sublime Text 3/Packages/User/mavensmate.sublime-settings",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/triggers/PolizaTrigger.trigger",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/PolizasVipControllerExtension.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/PolizasVipAdministracionController.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/PolizasVipOpportunityControllerExtension.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/pages/PolizasVIP.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/pages/PolizasVIPAdministracion.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/pages/StdExceptionTemplate.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/pages/SiteRegister.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/pages/Newrisklocation.page-meta.xml",
+		"/Users/pedrojauregui/Documents/forceProjects/CloudCo/src/pages/UnitSearchConsole.page",
+		"/Users/pedrojauregui/Documents/Solcom/Credito Real/Applet Respaldo/manifestAtt.txt",
+		"/Users/pedrojauregui/Documents/Solcom/Credito Real/Applet con Manifest/AppletExample/META-INF/MANIFEST.MF",
+		"/Users/pedrojauregui/Documents/Solcom/Credito Real/Applet con Manifest/AppletExample/DocumentsApplet.class",
+		"/Users/pedrojauregui/Documents/Solcom/Credito Real/Applet con Manifest/AppletExample/DocumentsApplet$1.class",
+		"/Users/pedrojauregui/Documents/Solcom/Credito Real/Applet con Manifest/AppletExample/META-INF/ME.SF",
+		"/Users/pedrojauregui/Documents/Solcom/Credito Real/Applet con Manifest/AppletExample/META-INF/ME.DSA",
+		"/Users/pedrojauregui/Documents/Proyectos Personales/Credito Real /deployJava.js",
+		"/Users/pedrojauregui/Documents/forceProjects/CloudCo/src/pages/Unauthorized.page",
+		"/Users/pedrojauregui/Documents/Cloudco/Pagina Cloud Co/ONE-2.0/html/index.html",
+		"/Users/pedrojauregui/Documents/Cloudco/Desarrollo_Mobile/AbiliaDemo/AbiliaDemo/www/index.html",
+		"/Users/pedrojauregui/Documents/Cloudco/Desarrollo_Mobile/AbiliaDemo/AbiliaDemo/www/inline.js",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/src/classes/PolizasVipAdministracionExtension.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuctions_Bid.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/pages/AuctionDetails.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuction_Auction.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/AuctionService.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuctions_DataGenerator.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/AuctionDetailController.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/AuctionDetailController.cls-meta.xml",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/AuctionNewController.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/AuctionTriggerHandler.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuction_AuctionService.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/UserService.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/CharityAuctionConstants.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuction_UserService.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuction_DetailControllers.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuction_BidService.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/BidService.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuction_BidService.cls-meta.xml",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/pages/AuctionNew.page",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/BidTriggerHandler.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuction_EditControllers.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuction_NewControllers.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/AuctionEditController.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuction_Controllers.cls",
+		"/Users/pedrojauregui/Documents/Projectos Personales/Cloudco/Pagina Cloud Co/PaginaWeb/html/contact.html",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/triggers/AuctionTrigger.trigger",
+		"/Users/pedrojauregui/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/pedrojauregui/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/pedrojauregui/Library/Application Support/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/ApplicationException.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/triggers/BidTrigger.trigger",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuction_DetailController.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuctions_Process.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/ActiveAuctionComponentController.cls",
+		"/Users/pedrojauregui/Documents/forceProjects/Grupo CP Dev/Grupo CP Dev.sublime-project",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/components/NewAuctionComponent.component",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/components/EndedAuctionComponent.component",
+		"/Users/pedrojauregui/Documents/forceProjects/Certificacion/src/classes/Test_CharityAuctions_Charity.cls"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"listaFechasHorasFinalesExistentes",
+			"listaFechasHorasInicialesExistentes",
+			"toggleMyEvents",
+			"realizaoperaciones",
+			"Static",
+			"UsoCapital",
+			"cIlPromUsoCapital",
+			"cIcapital",
+			"cIcapitalCP3",
+			"Escenario",
+			"UsoCapital",
+			"Cartas de Crédito",
+			"procesar",
+			"osuc",
+			"OSUC__c",
+			"Osuc",
+			"Cotiza",
+			"triggerRunOnce",
+			"EjecutivoAsignado",
+			"__r",
+			"Equipo_asignado__c",
+			"Equipo",
+			"Aseguradora_Seleccionada__c",
+			"Equipo__c",
+			"Comision",
+			"Prima",
+			"Cartas de Crédito",
+			".5",
+			"back2ContactList",
+			"Desarrollos",
+			"map",
+			"50px",
+			"sear",
+			"contactList",
+			"Observa",
+			"Tecnico",
+			"lPacientesTodos",
+			"dNoRegPagina",
+			"sNomEmp",
+			"bNoPacientes",
+			"getCookies",
+			"Utils",
+			"dNoRegPagina",
+			"getNoRegPorPagina",
+			"NoRegPorPagina__c",
+			"ConsultaPacientes",
+			"aseguradoNombre",
+			"tContact",
+			"c.",
+			"External",
+			"!auc",
+			"auc",
+			"Auc",
+			"auc",
+			"getAuctionsById",
+			"getAuctionsMapById",
+			"_Consumer",
+			"user2",
+			":::",
+			"Tel.",
+			"wrap",
+			"free",
+			"getHighBiddersFromAuctions",
+			"p.Grupo02__c",
+			"Cliente__r",
+			"Cliente__c",
+			"Auction__c"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/pages/ChatterFeed.page",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								400,
+								400
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/pages/DefaultTemplate.page",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 829,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								13
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/staticresources/defaultStyle.resource",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								354,
+								354
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/pages/NuevaReservacion.page",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2247,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								84,
+								84
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 204.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/triggers/DisponibilidadReservacion.trigger",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6163,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3626,
+								3652
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/Apex.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 515.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/triggers/ReservacionAmenidadTrigger.trigger",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1693,
+								1693
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/Apex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/classes/ReservacionAmenidadTriggerService.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 690,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								46
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/Apex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/pages/IdeasListPage.page",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 98,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36,
+								36
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/classes/IdeasListPageExtension.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 302,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								77,
+								102
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/Apex.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MavensMate-OutputPanel":
+	{
+		"height": 227.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "Mutualismo.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"nueva",
+				"src/pages/NuevaReservacion.page"
+			],
+			[
+				"calculadorasrorcvalidaaprobaciones",
+				"src/classes/CalculadorasRORCValidaAprobaciones.cls"
+			],
+			[
+				"calculadora",
+				"src/pages/CalculadorasRORCValidacion.page"
+			],
+			[
+				"aproba",
+				"src/triggers/AprobacionCalculadoraTrigger.trigger"
+			],
+			[
+				"calcul",
+				"src/classes/Service_CalculadorasRORC.cls"
+			],
+			[
+				"calcu",
+				"src/classes/CalculadorasRORCController.cls"
+			],
+			[
+				"service_",
+				"src/classes/Service_OpportunityTrigger.cls"
+			],
+			[
+				"service_p",
+				"src/classes/Service_OpportunityTrigger.cls"
+			],
+			[
+				"test_",
+				"src/classes/Test_OportunidadesNoGanadas.cls"
+			],
+			[
+				"attachmenttriggers",
+				"src/classes/AttachmentTriggerService.cls"
+			],
+			[
+				"servic",
+				"src/classes/Service_OpportunityTrigger.cls"
+			],
+			[
+				"polizasvip",
+				"src/pages/PolizasVIP.page"
+			],
+			[
+				"polizasvio",
+				"src/pages/PolizasVIPAdministracion.page"
+			],
+			[
+				"service_cal",
+				"src/classes/Service_CalculadorasRORC.cls"
+			],
+			[
+				"polizas",
+				"src/classes/PolizasVipControllerExtension.cls"
+			],
+			[
+				"poli",
+				"src/pages/PolizasVIP.page"
+			],
+			[
+				"service",
+				"src/classes/Service_OpportunityTrigger.cls"
+			],
+			[
+				"poliza",
+				"src/pages/PolizasVIPAdministracion.page"
+			],
+			[
+				"polizavip",
+				"src/classes/PolizasVipControllerExtension.cls"
+			],
+			[
+				"ws_",
+				"src/classes/Ws_IntegracionWims.cls"
+			],
+			[
+				"controller",
+				"src/classes/AuctionDetailController.cls"
+			],
+			[
+				"",
+				"src/classes/AuctionDetailController.cls"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"Poli",
+				"PolizasVipControllerExtension"
+			],
+			[
+				"Polizas",
+				"PolizasVipControllerExtension"
+			],
+			[
+				"AuctionNew",
+				"AuctionNewController"
+			],
+			[
+				"AucionEdi",
+				"AuctionEditController"
+			],
+			[
+				"",
+				"AuctionEditController"
+			],
+			[
+				"bulk",
+				"bid_Consumer_PositiveCases_BulkBids"
+			],
+			[
+				"Auction",
+				"AuctionTriggerHandler"
+			],
+			[
+				"test",
+				"Test_CharityAuctions_DataGenerator"
+			],
+			[
+				"Test",
+				"Test_CharityAuction_Controllers"
+			],
+			[
+				"getHi",
+				"getHighBiddersFromAuctions"
+			]
+		],
+		"width": 392.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 273.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

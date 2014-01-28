@@ -1,0 +1,180 @@
+#project related files
+.DS_Store
+Referenced Packages
+.settings
+.project
+salesforce.schema
+ 
+#unfiled emails
+src/email/unfiled$public/
+ 
+#default communities available in dev org
+src/communities/Internal Community.community
+ 
+#default home layouts for dev orgs
+src/homePageLayouts/DE Default.homePageLayout
+ 
+#standard objects, comment as needed
+src/objects/AccountContactRole.object
+src/objects/Activity.object
+src/objects/Asset.object
+src/objects/Campaign.object
+src/objects/CampaignMember.object
+src/objects/CaseContactRole.object
+src/objects/ContentVersion.object
+src/objects/Contract.object
+src/objects/ContractContactRole.object
+src/objects/Event.object
+src/objects/Lead.object
+src/objects/Opportunity.object
+src/objects/OpportunityCompetitor.object
+src/objects/OpportunityContactRole.object
+src/objects/OpportunityLineItem.object
+src/objects/PartnerRole.object
+src/objects/Product2.object
+src/objects/Site.object
+src/objects/SocialPersona.object
+src/objects/Solution.object
+src/objects/Task.object
+#src/objects/Case.object
+#src/objects/Idea.object
+#src/objects/User.object
+#src/objects/Contact.object
+#src/objects/Account.object
+ 
+#all standard layouts available in dev org
+src/layouts/Account-Account %28Marketing%29 Layout.layout
+src/layouts/Account-Account %28Sales%29 Layout.layout
+src/layouts/Account-Account %28Support%29 Layout.layout
+src/layouts/Account-Account Layout.layout
+src/layouts/Asset-Asset Layout.layout
+src/layouts/Campaign-Campaign Layout.layout
+src/layouts/CampaignMember-Campaign Member Page Layout.layout
+src/layouts/Case-Case %28Marketing%29 Layout.layout
+src/layouts/Case-Case %28Sales%29 Layout.layout
+src/layouts/Case-Case %28Support%29 Layout.layout
+src/layouts/Case-Case Layout.layout
+src/layouts/CaseClose-Close Case Layout.layout
+src/layouts/Contact-Contact %28Marketing%29 Layout.layout
+src/layouts/Contact-Contact %28Sales%29 Layout.layout
+src/layouts/Contact-Contact %28Support%29 Layout.layout
+src/layouts/Contact-Contact Layout.layout
+src/layouts/ContentVersion-General.layout
+src/layouts/Contract-Contract Layout.layout
+src/layouts/Event-Event Layout.layout
+src/layouts/Idea-Idea Layout.layout
+src/layouts/Lead-Lead %28Marketing%29 Layout.layout
+src/layouts/Lead-Lead %28Sales%29 Layout.layout
+src/layouts/Lead-Lead %28Support%29 Layout.layout
+src/layouts/Lead-Lead Layout.layout
+src/layouts/Opportunity-Opportunity %28Marketing%29 Layout.layout
+src/layouts/Opportunity-Opportunity %28Sales%29 Layout.layout
+src/layouts/Opportunity-Opportunity %28Support%29 Layout.layout
+src/layouts/Opportunity-Opportunity Layout.layout
+src/layouts/OpportunityLineItem-Opportunity Product Layout.layout
+src/layouts/Product2-Product Layout.layout
+src/layouts/SocialPersona-Social Persona Layout.layout
+src/layouts/Solution-Solution Layout.layout
+src/layouts/Task-Task Layout.layout
+src/layouts/User-User Layout.layout
+ 
+#escalation rules
+src/escalationRules/Case.escalationRules
+ 
+#standard profiles available in dev org
+src/profiles/Admin.profile
+src/profiles/Chatter External User.profile
+src/profiles/Chatter Free User.profile
+src/profiles/Chatter Moderator User.profile
+src/profiles/ContractManager.profile
+src/profiles/Custom%3A Marketing Profile.profile
+src/profiles/Custom%3A Sales Profile.profile
+src/profiles/Custom%3A Support Profile.profile
+src/profiles/Customer Portal Manager Custom.profile
+src/profiles/Customer Portal Manager Standard.profile
+src/profiles/Force%2Ecom - App Subscription User.profile
+src/profiles/Force%2Ecom - Free User.profile
+src/profiles/Gold Partner User.profile
+src/profiles/HighVolumePortal.profile
+src/profiles/MarketingProfile.profile
+src/profiles/Partner App Subscription.profile
+src/profiles/PlatformPortal.profile
+src/profiles/ReadOnly.profile
+src/profiles/Silver Partner User.profile
+src/profiles/SolutionManager.profile
+src/profiles/Standard.profile
+src/profiles/StandardAul.profile
+ 
+ 
+#remote site settings from dev org
+src/remoteSiteSettings/ApexDevNet.remoteSite
+ 
+#standard workflows, comment as needed
+src/workflows/Account.workflow
+src/workflows/Asset.workflow
+src/workflows/Campaign.workflow
+src/workflows/CampaignMember.workflow
+src/workflows/Case.workflow
+src/workflows/Contact.workflow
+src/workflows/Contract.workflow
+src/workflows/Event.workflow
+src/workflows/Idea.workflow
+src/workflows/Lead.workflow
+src/workflows/Opportunity.workflow
+src/workflows/OpportunityLineItem.workflow
+src/workflows/Organization.workflow
+src/workflows/Product2.workflow
+src/workflows/Site.workflow
+src/workflows/SocialPersona.workflow
+src/workflows/Solution.workflow
+src/workflows/Task.workflow
+src/workflows/UserLicense.workflow
+ 
+#standard roles from dev org
+src/roles/CEO.role
+src/roles/CFO.role
+src/roles/COO.role
+src/roles/ChannelSalesTeam.role
+src/roles/CustomerSupportInternational.role
+src/roles/CustomerSupportNorthAmerica.role
+src/roles/DirectorChannelSales.role
+src/roles/DirectorDirectSales.role
+src/roles/EasternSalesTeam.role
+src/roles/InstallationRepairServices.role
+src/roles/MarketingTeam.role
+src/roles/SVPCustomerServiceSupport.role
+src/roles/SVPHumanResources.role
+src/roles/SVPSalesMarketing.role
+src/roles/VPInternationalSales.role
+src/roles/VPMarketing.role
+src/roles/VPNorthAmericanSales.role
+src/roles/WesternSalesTeam.role
+ 
+#standard assignment rules
+src/assignmentRules/Case.assignmentRules
+src/assignmentRules/Lead.assignmentRules
+ 
+#standard sharing rules
+src/opportunitySharingRules/Opportunity.sharingRules
+src/leadSharingRules/Lead.sharingRules
+src/accountSharingRules/Account.sharingRules
+src/campaignSharingRules/Campaign.sharingRules
+src/caseSharingRules/Case.sharingRules
+src/contactSharingRules/Contact.sharingRules
+ 
+#settings
+src/settings/Case.settings
+src/settings/ChatterAnswers.settings
+src/settings/Company.settings
+src/settings/Contract.settings
+src/settings/Entitlement.settings
+src/settings/Knowledge.settings
+src/settings/Mobile.settings
+src/settings/Security.settings
+#src/settings/Ideas.settings
+
+
+#Pages
+src/pages/*
+!DefaultTemplate.page
+!NuevaReservacion.page
