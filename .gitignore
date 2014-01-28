@@ -182,7 +182,7 @@ src/pages/*
 !NuevaReservacion.page
 
 #Clases
-src/clases/*
+src/classes/*
 
 ### CONTROLLERS
 !NuevaReservacionController.cls
