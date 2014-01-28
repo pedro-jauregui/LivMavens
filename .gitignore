@@ -196,3 +196,7 @@ src/triggers/*
 
 #Components
 src/components/*
+
+#Static Resources
+src/staticresources/*
+!LivDefaultStyles.resource
